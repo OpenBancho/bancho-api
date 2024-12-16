@@ -6,10 +6,7 @@ import lt.ekgame.bancho.api.Bancho;
 import lt.ekgame.bancho.api.packets.ByteDataInputStream;
 import lt.ekgame.bancho.api.packets.ByteDataOutputStream;
 import lt.ekgame.bancho.api.packets.Packet;
-import lt.ekgame.bancho.api.units.Beatmap;
 import lt.ekgame.bancho.api.utils.DataUtils;
-import lt.ekgame.bancho.client.Status;
-import lt.ekgame.bancho.client.impl.StatusImpl;
 
 public class PacketUserStats extends Packet {
 

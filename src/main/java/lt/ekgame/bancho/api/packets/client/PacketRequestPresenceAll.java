@@ -1,8 +1,6 @@
 package lt.ekgame.bancho.api.packets.client;
 
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
 
 import lt.ekgame.bancho.api.Bancho;
 import lt.ekgame.bancho.api.packets.ByteDataInputStream;

@@ -5,6 +5,7 @@ import java.io.ByteArrayOutputStream;
 import java.io.EOFException;
 import java.io.IOException;
 import java.io.InputStream;
+import java.lang.reflect.InvocationTargetException;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.ArrayList;
@@ -279,7 +280,7 @@ public class BanchoClientImpl extends Thread implements BanchoClient {
 				Class<? extends Packet> packetClass = Packets.getById(type);
 				if (packetClass != null) {
 					try {
-						Packet packet = (Packet) packetClass.newInstance();
+						Packet packet = (Packet) packetClass.getDeclaredConstructor().newInstance();
 						//if (verbose && !(packet instanceof PacketIdle) && !(packet instanceof PacketUserStats) && !(packet instanceof PacketUserPresenceSingle) && !(packet instanceof PacketUnknown0C)
 						// && !(packet instanceof PacketRoomUpdate) && !(packet instanceof PacketUnknown1B)&& !(packet instanceof PacketUnknown1C))
 						if (verbose)
@@ -287,11 +288,10 @@ public class BanchoClientImpl extends Thread implements BanchoClient {
 						ByteDataInputStream stream = new ByteDataInputStream(new ByteArrayInputStream(bytes), this);
 						packet.read(stream, len);
 						handlePacket(packet);
-					} catch (InstantiationException e) {
+					} catch (InstantiationException | IllegalAccessException | NoSuchMethodException | InvocationTargetException e) {
 						e.printStackTrace();
-					} catch (IllegalAccessException e) {
-						e.printStackTrace();
-					}
+					} 
+					
 				} else {
 					if (verbose) {
 						System.out.printf("Unknown packet: %02X %08X \n- Data: ", type, len);

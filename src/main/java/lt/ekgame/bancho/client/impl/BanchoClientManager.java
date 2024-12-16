@@ -1,12 +1,11 @@
 package lt.ekgame.bancho.client.impl;
 
 import lt.ekgame.bancho.api.packets.Packet;
-import lt.ekgame.bancho.api.packets.client.PacketRequestUpdate;
 import lt.ekgame.bancho.api.packets.client.PacketStatusUpdate;
+import lt.ekgame.bancho.api.packets.server.PacketLoginReply;
 import lt.ekgame.bancho.api.packets.server.PacketProtocolVersion;
 import lt.ekgame.bancho.api.packets.server.PacketReceivingFinished;
 import lt.ekgame.bancho.api.packets.server.PacketSilenceInfo;
-import lt.ekgame.bancho.api.packets.server.PacketLoginReply;
 import lt.ekgame.bancho.client.BanchoClient;
 import lt.ekgame.bancho.client.PacketHandler;
 import lt.ekgame.bancho.client.Status;

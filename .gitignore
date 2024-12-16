@@ -1,0 +1,6 @@
+# Java Project
+target/
+bin/
+
+# IDE things
+.vscode/
